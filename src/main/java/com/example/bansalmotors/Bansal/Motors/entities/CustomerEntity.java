@@ -13,36 +13,26 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "car_table")
-public class CarEntity {
+@Table(name = "customer_table")
+public class CustomerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String model;
+    private String name;
 
     @Column(nullable = false)
-    private String brand;
+    private String email;
 
     @Column(nullable = false)
-    private Double price;
+    private String phoneNumber;
 
     @Column(nullable = false)
-    private Boolean available;
+    private String address;
 
-    @Column(nullable = false)
-    private int manufactureYear;
-
-    @Column(nullable = false)
-    private String fuelType;
-
-    @ManyToOne
-    @JoinColumn(name = "showroom_id")
-    private ShowroomEntity showroom;
-
-    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<BookingEntity> bookings;
 
 }

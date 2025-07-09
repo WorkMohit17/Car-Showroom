@@ -6,43 +6,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "car_table")
-public class CarEntity {
+@Table(name = "staff_table")
+public class StaffEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String model;
+    private String name;
 
     @Column(nullable = false)
-    private String brand;
+    private String role;
 
     @Column(nullable = false)
-    private Double price;
-
-    @Column(nullable = false)
-    private Boolean available;
-
-    @Column(nullable = false)
-    private int manufactureYear;
-
-    @Column(nullable = false)
-    private String fuelType;
+    private Double salary;
 
     @ManyToOne
     @JoinColumn(name = "showroom_id")
     private ShowroomEntity showroom;
-
-    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
-    private List<BookingEntity> bookings;
 
 }
