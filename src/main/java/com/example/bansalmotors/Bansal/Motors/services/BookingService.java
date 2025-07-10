@@ -9,24 +9,20 @@ import com.example.bansalmotors.Bansal.Motors.repositories.BookingRepository;
 import com.example.bansalmotors.Bansal.Motors.repositories.CarRepository;
 import com.example.bansalmotors.Bansal.Motors.repositories.CustomerRepository;
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.ResourceAccessException;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class BookingService {
 
     private final BookingRepository repository;
-    private final CarRepository carRepository;
-    private final CustomerRepository customerRepository;
 
-    public BookingService(BookingRepository repository, CarRepository carRepository, CustomerRepository customerRepository) {
+    public BookingService(BookingRepository repository) {
         this.repository = repository;
-        this.carRepository = carRepository;
-        this.customerRepository = customerRepository;
     }
 
     /*
