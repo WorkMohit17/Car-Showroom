@@ -1,5 +1,6 @@
 package com.example.bansalmotors.Bansal.Motors.entities;
 
+import com.example.bansalmotors.Bansal.Motors.audit.Auditable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "staff_table")
-public class StaffEntity {
+public class StaffEntity extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

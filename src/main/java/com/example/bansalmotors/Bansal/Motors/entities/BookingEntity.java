@@ -1,5 +1,6 @@
 package com.example.bansalmotors.Bansal.Motors.entities;
 
+import com.example.bansalmotors.Bansal.Motors.audit.Auditable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "booking_table")
-public class BookingEntity {
+public class BookingEntity extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
