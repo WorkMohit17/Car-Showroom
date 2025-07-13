@@ -6,8 +6,6 @@ import com.example.bansalmotors.Bansal.Motors.entities.CarEntity;
 import com.example.bansalmotors.Bansal.Motors.entities.CustomerEntity;
 import com.example.bansalmotors.Bansal.Motors.mappers.BookingMapper;
 import com.example.bansalmotors.Bansal.Motors.repositories.BookingRepository;
-import com.example.bansalmotors.Bansal.Motors.repositories.CarRepository;
-import com.example.bansalmotors.Bansal.Motors.repositories.CustomerRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -76,7 +74,7 @@ public class BookingService {
         return Optional.of(updatedDTO);
     }
 
-    boolean deleteBooking(Long id){
+    public boolean deleteBooking(Long id){
         isExistByid(id);
         repository.deleteById(id);
         return true;
