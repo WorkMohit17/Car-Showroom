@@ -17,7 +17,7 @@ public class CarDTO {
     private String brand;
     private Double price;
     private Boolean available;
-    private int manufactureYear;
+    private Integer manufactureYear;
     private String fuelType;
     private Long showroomId;
     private List<Long> bookingIds;
