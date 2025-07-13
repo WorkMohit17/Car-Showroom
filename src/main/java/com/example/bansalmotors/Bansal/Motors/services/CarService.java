@@ -21,7 +21,7 @@ public class CarService {
     }
 
     /*
-     ✅ BASIC CRUD OPERATIONS
+      BASIC CRUD OPERATIONS
      */
 
     public Optional<CarDTO> createCar(CarDTO dto) {
@@ -83,7 +83,7 @@ public class CarService {
     }
 
     /*
-     🔍 OPTIONAL FILTER METHODS
+       FILTER METHODS
      */
 
     public Optional<List<CarDTO>> getCarsByBrand(String brand) {
@@ -135,7 +135,7 @@ public class CarService {
     }
 
     /*
-        OPTIONAL STATUS OPERATIONS
+        STATUS OPERATIONS
      */
 
     public Optional<CarDTO> markCarAsSold(Long carId) {
