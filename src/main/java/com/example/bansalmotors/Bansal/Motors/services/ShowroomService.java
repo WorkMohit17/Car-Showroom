@@ -21,7 +21,7 @@ public class ShowroomService {
     }
 
     /*
-      BASIC CRUD OPERATIONS
+       BASIC CRUD OPERATIONS
      */
 
     public Optional<ShowroomDTO> createShowroom(ShowroomDTO dto) {
@@ -66,32 +66,36 @@ public class ShowroomService {
     }
 
     /*
-        OPTIONAL SEARCH/FILTER
+      SEARCH & FILTER USING REPOSITORY
      */
 
     public Optional<List<ShowroomDTO>> searchShowroomsByLocation(String keyword) {
-        List<ShowroomDTO> filtered = repository.findAll().stream()
-                .filter(s -> s.getLocation().toLowerCase().contains(keyword.toLowerCase()))
+        List<ShowroomDTO> list = repository.findByLocationContainingIgnoreCase(keyword)
+                .stream()
                 .map(ShowroomMapper::toDTO)
                 .collect(Collectors.toList());
-        return Optional.of(filtered);
+        return Optional.of(list);
     }
 
     public Optional<List<ShowroomDTO>> getShowroomsByManagerName(String managerName) {
-        List<ShowroomDTO> filtered = repository.findAll().stream()
-                .filter(s -> s.getManagerName().equalsIgnoreCase(managerName))
+        List<ShowroomDTO> list = repository.findByManagerNameIgnoreCase(managerName)
+                .stream()
                 .map(ShowroomMapper::toDTO)
                 .collect(Collectors.toList());
-        return Optional.of(filtered);
+        return Optional.of(list);
     }
 
     public Optional<List<ShowroomDTO>> searchShowroomsByManagerKeyword(String keyword) {
-        List<ShowroomDTO> filtered = repository.findAll().stream()
-                .filter(s -> s.getManagerName().toLowerCase().contains(keyword.toLowerCase()))
+        List<ShowroomDTO> list = repository.findByManagerNameContainingIgnoreCase(keyword)
+                .stream()
                 .map(ShowroomMapper::toDTO)
                 .collect(Collectors.toList());
-        return Optional.of(filtered);
+        return Optional.of(list);
     }
+
+    /*
+       COLLECTION-BASED FILTERS
+     */
 
     public Optional<List<ShowroomDTO>> getShowroomsWithCars() {
         List<ShowroomDTO> filtered = repository.findAll().stream()
@@ -117,5 +121,4 @@ public class ShowroomService {
                 .collect(Collectors.toList());
         return Optional.of(filtered);
     }
-
 }
